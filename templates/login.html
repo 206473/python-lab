@@ -1,0 +1,14 @@
+﻿<H1>Login</H1><HR>
+<form action="/Login/" Method="POST">
+	{% csrf_token %}
+	{{ form }}
+<input type="text" name="email" pattern=".+@.+\..+" placeholder="email" value="{{ p.email }}" ></input>
+<input type="text" name="password" value="{{ p.password }}" placeholder="Пароль" ></input>
+
+<input type="submit" value="Login"/>
+</form>
+<form method="LINK" action="/Register/">
+    <input type="submit" value="Register"></td>
+</form>
+</tr>
+</table>

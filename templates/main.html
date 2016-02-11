@@ -1,0 +1,41 @@
+<!DOCTYPE>
+<html>
+<head>
+</head>
+<body>
+<div width=80% Height="100px">
+<H2>Subscription<H2>
+<div align="right">
+<a href="/Login/logout"><button>Logout</button></a>
+</div>
+<hr>
+<div>
+<form action="/main/subscription/" Method="POST">
+	{% csrf_token %}
+	{{ form }}
+<input type="text" name="url" size="50" placeholder="http(s)://www.example.com" pattern="(http|https):\/\/.+"/>
+<input type="submit" Value="Subscribe"/>
+</form>
+<div>
+<form action="/main/ViewImages/" Method="POST">
+{% csrf_token %}
+	{{ form }}
+	<select name="subs">
+{% for o in list %}
+	<option>{{ o }}</option>
+{% endfor %}
+	</select>
+	<input type="submit" Value="Go!"/>
+</form>
+
+</div>
+<div align="center">
+{% for i in img %}
+    <div align="center"><img src="{{ i.url }}"/></div>
+{% endfor %}
+
+</div>
+</div>
+</div>
+</body>
+</html>
